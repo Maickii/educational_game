@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Linux</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://github.githubassets.com/assets/github-507d3a1815bf6d6fbda5797e4a2be57a.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+a.default:link {color:blue;text-decoration:none;}
+a.default:visited {color:purple;text-decoration:none;}
+a.default:hover {text-decoration:underline;}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="../index.html" class="w3-bar-item w3-button w3-theme-l1">Main</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About me</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <a class="w3-bar-item w3-button w3-khaki w3-hover-black" href="Linux.html"><b>Linux</b></a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="terminal.html">Terminal</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="shell.html">The Shell</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-container">
+	<article class="markdown-body">
+      <p><strong>The Shell</strong></p>
+<p>Let's talk about the shell, as previously mentioned in the previous terminal section, a shell is a program that interprets simple commands into complex instructions. There are many shells out there, but the one I am going to talk about is Bash. As far as my understanding goes, there isn't much difference between the shells. Some have some features that others don't, but they all essentially accomplish the same job.</p>
+<p>Let's open up a terminal, shall we?</p>
+<p>When I first open up the terminal get greeted with a prompt like this:</p>
+<pre><code>michael@Michael-Server:~$</code></pre>
+<p>In this prompt I can type anything.</p>
+<pre><code>michael@Michael-Server:~$ uhnnfjninfinfijneff
+bash: uhnnfjninfinfijneff: command not found...
+michael@Michael-Server:~$
+</code></pre>
+<p>apparently uhnnfjninfinfijneff isn't a command. Let's try another</p>
+<pre><code>michael@Michael-Server:~$ pwd
+/home/michael
+michael@Michael-Server:~$</code></pre>
+<p>huh. Something came back. Turns out `pwd` is an actual command, it is in fact the abbreviation of 'Print Working Directory'. Well, how does the shell <em>know </em><code>`pwd`</code> is a command and <code>`uhnnfjninfinfijneff`</code> isn't? When you enter a command, the shell looks for the command in a series of directories in the computer. Once it finds the command, it executes it. If you are familiar with Windows, you probably know how to open up your web browser. The long way of doing it is by opening up file explorer and searching for the directory for the browser and then double clicking on the browser executable. When you double click the executable, you essentially execute, the executable. Man, I got to stop using that word lol. When you enter a command, it does the same. It executes the executable. Ok, but whereis exactly `pwd`? how did the shell find it? As I said, the shell looks in a series of directories to find it. Which directories? The directories the shell looks in are set in the PATH environment variable. The what now? Just keep reading...</p>
+<pre><code>michael@Michael-Server:~$ echo $PATH
+/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+michael@Michael-Server:~$</code></pre>
+<p>What did I just do? `echo` is another command. It just prints stuff out. If you are familiar with C, it's basically shell's printf. What is `$PATH`? It is variable. I could set the variable to something else if I wanted. I could say:</p>
+<pre><code>michael@Michael-Server:~$ PATH=&lt;something else&gt;</code></pre>
+<p>but this variable is special. Because it is special it is called an environment variable. Ok, there is an actual reason why it is called an environment variable. When the shell first loads up, it starts a list of environment variables. One of them is the PATH variable. To print a variable using echo you just simple prepend the variable name with dollar sign, which is why ` echo $PATH ` prints the content of PATH. The directories are separated by a colon. To see a list of all the enviroment variables simply run `env`.</p>
+<p>Now, going back to `pwd`, whereis it? Let's look in the directories. To do that we run the command `ls`.</p>
+<pre><code>michael@Michael-Server:~$ echo $PATH
+/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+michael@Michael-Server:~$ ls /usr/share/Modules/bin
+add.modules  createmodule.py  createmodule.sh  mkroot
+michael@Michael-Server:~$ ls /usr/local/bin
+michael@Michael-Server:~$ ls /usr/bin
+'['                                         mpage
+ ab                                         mpartition
+ abrt-action-analyze-backtrace              mppcheck
+ abrt-action-analyze-c                      mpplu
+ abrt-action-analyze-ccpp-local             mppprof
+ abrt-action-analyze-core                   mpris-proxy
+ abrt-action-analyze-java                   mrd
+ abrt-action-analyze-oops                   mren
+ abrt-action-analyze-python                 msgattrib
+ abrt-action-analyze-vmcore                 msgcat
+ abrt-action-analyze-vulnerability          msgcmp
+ ...</code></pre>
+<p>wow... this is a huge list. I actually shorted it. We can still find it. Let's just add pwd at the end of the of it, and see what `ls` comes back with</p>
+<pre><code>michael@Michael-Server:~$ ls /usr/bin/pwd
+/usr/bin/pwd
+michael@Michael-Server:~$</code></pre>
+<p>wow, but wait, how do we know this is correct? How do we know ls isnt lying? Lets do:</p>
+<pre><code>michael@Michael-Server:~$ ls /usr/bin/uhnnfjninfinfijneff
+ls: cannot access '/usr/bin/uhnnfjninfinfijneff': No such file or directory
+michael@Michael-Server:~$</code></pre>
+<p>ok `ls` is telling the truth. I wonder if there is an easier way to find the command? Wait, there is! The command is `whereis` ;)</p>
+<pre><code>michael@Michael-Server:~$ whereis pwd
+pwd: /usr/bin/pwd /usr/include/pwd.h /usr/share/man/man1p/pwd.1p.gz /usr/share/man/man1/pwd.1.gz
+michael@Michael-Server:~$</code></pre>
+<p>oh gee, this is too much to remember. Don't, worry, after a couple days you will be a master at it. ;)</p>
+</article>
+    </div>
+  </div>
+
+<!-- END MAIN -->
+</div>
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>

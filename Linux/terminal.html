@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Terminal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+a.default:link {color:blue;text-decoration:none;}
+a.default:visited {color:purple;text-decoration:none;}
+a.default:hover {text-decoration:underline;}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="../index.html" class="w3-bar-item w3-button w3-theme-l1">Main</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About me</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="Linux.html"><b>Linux</b></a>
+  <a class="w3-bar-item w3-button w3-khaki w3-hover-black" href="terminal.html">Terminal</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="shell.html">The Shell</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-container">
+	    <p><strong>Terminal</strong></p>
+	    <p>The term "terminal" sometimes is used interchangeably with command line interface, bash, and shell, or bash shell. They are all really refer to the same thing but are slightly different.</p>
+	    <ul>
+		    <li>Terminal: A program on your computer, like any other program in your computer such as a calculator program. You can minimize it, maximize it, close it, and all the things related to having a program running on your computer. The main difference between other programs and a terminal is that a terminal runs a command line interface within it.</li>
+		    <li>Command line interface: an interface refers to a (sometimes simplistic) mechanism that allows you to interact with the inner more complex mechanism. For example, in a car, you wouldn't want to directly turn all the gears and pumps inside the engine to make the wheels move. You would much rather have a pedal to press on to make the wheels move. An interface is just a simplified mechanism allowing you to interact with a more complex mechanism. A command line interface simple refers to a command-based interface. The complex (or inner) mechanism is actual execution of actual binary code in the computer. Again, you wouldn't want to manually send each individual bit of binary code to your computer yourself, you would much rather want to send binary instructions in a single command. &nbsp;</li>
+	    </ul>
+	    <p>Let's pause here for a second. Let's recap. A terminal is a computer program like any other. A terminal runs a command line interface within it. A command line interface just takes simple commands which internally are interpreted as more complex instructions.</p>
+	    <p>Like verbal language, commands entered on the terminal need to be interpreted. There is a program running inside the command line interface call the Bash Shell that interprets said commands an executes them internally. So really, when you write commands on the terminal you are actually writing to the shell (1). The user may enter garbage into the shell, if the shell can't comprehend the garbage it will complain telling the user it can't comprehend the garbage. If it can understand it as a valid command, then it will execute said command.</p>
+	    <p>(1) Notice how I said, "writing to the shell" and not "writing to <em>the</em> bash shell". What is a shell in the first place? Well, Bash <em>is</em> a type of shell. Let me give you a comparison. Say I have the sentence "My Toyota Car is the best. My Toyota Car is the greatest." Well, 'Toyota Car' is redundant. Toyota only makes cars, so it's safe to say when you are talking about your Toyota you are defiantly talking about your Toyota <em>car</em>, so there is no need to say it is a car. You could have simply said, 'My Toyota' because Toyota is a type of car. This is the equivalent of saying 'Bash is great', instead of 'the Bash Shell is great.' On the other hand, say for example we weren't concern about the make of car you drive, instead we were concerned about the fact that you drive a car. In that case you could say 'My car is the greatest.' Alternately you could say 'the Shell is great'. So, bash is a type of shell. There are other shells out there. There exists sh, ksh, csh, tcsh, zsh. There are probably more out there, but these were the ones I found on the top of the Wikipedia page lol.</p>
+	    <p>Next, lets learn a little about how to use The Shell.</p>
+    </div>
+  </div>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
