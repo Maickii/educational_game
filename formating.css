@@ -1,0 +1,43 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+table{
+	width:100%;
+	}
+th{
+	padding-bottom:10px;
+}
+td{
+	
+	width:200px;
+	text-align:center;
+}
+tr{
+	background: rgba(255, 20, 0, 0.2); 
+}
+
+.description{
+	margin:50px;
+}
+
+
+p{
+	text-align: center;
+}
+img{
+	width:150px;
+	height:150px;
+}
+
+.rotateimg180 {
+  -webkit-transform:rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
