@@ -35,7 +35,7 @@ class Background(pygame.sprite.Sprite):
 
 def things_dodged(count):
     font = pygame.font.SysFont(None, 25)
-    text = font.render("Dodged: " + str(count), True, black)
+    text = font.render("Timer: " + str(count), True, black)
     gameDisplay.blit(text, (0, 0))
 
 
@@ -119,6 +119,7 @@ def game_intro():
 
         gameDisplay.fill([255, 255, 255])
         gameDisplay.blit(BackGround.image, BackGround.rect)
+        pygame.draw.rect(gameDisplay, red, ((display_width / 7), (display_height / 5), 575, 55))
         largeText = pygame.font.Font('freesansbold.ttf', 55)
         TextSurf, TextRect = text_objects("Fun with Numbers", largeText)
         TextRect.center = ((display_width / 2), (display_height / 4))
@@ -126,7 +127,7 @@ def game_intro():
 
         mouse = pygame.mouse.get_pos()
 
-        print(mouse)
+        #print(mouse)
 
         if 150 + 100 > mouse[0] > 150 and 450 + 50 > mouse[1] > 450:
             pygame.draw.rect(gameDisplay, bright_green, (((display_width / 2)-50), (display_height / 2), 100, 50))
@@ -139,7 +140,8 @@ def game_intro():
         else:
             pygame.draw.rect(gameDisplay, red, (((display_width / 2)-50), (display_height-150), 100, 50))
 
-        button("GO!",(display_width / 2)-50, (display_height / 2), 100, 50,green,bright_green,game_loop)
+        button("Grade 1",(display_width / 2)-50, (display_height / 2), 100, 50,green,bright_green,game_loop)
+        button("Grade 2", (display_width / 2) - 50, (display_height -225), 100, 50, green, bright_green, game_loop)
         button("Help!", ((display_width / 2)-50), (display_height-150), 100, 50, red, bright_red, game_loop)
 
         pygame.display.update()
@@ -161,6 +163,7 @@ def game_loop():
         gameDisplay.fill([255, 255, 255])
         gameDisplay.blit(BackGround.image, BackGround.rect)
         largeText = pygame.font.Font('freesansbold.ttf', 55)
+        pygame.draw.rect(gameDisplay, red, ((display_width / 7), (display_height / 5), 575, 55))
         TextSurf, TextRect = text_objects("What is 200-50:", largeText)
         TextRect.center = ((display_width / 2), (display_height / 4))
         gameDisplay.blit(TextSurf, TextRect)
