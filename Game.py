@@ -26,10 +26,10 @@ def game_title():
 
 def show_main():
 	for aw in about_widgets:
-		aw.pi = aw.place_info() 
+		aw.pi = aw.place_info()
 		aw.place_forget()
 	for l4w in level4_widgets:
-		l4w.pi = l4w.place_info() 
+		l4w.pi = l4w.place_info()
 		l4w.place_forget()
 	for mw in menu_widgets:
 		mw.place(mw.pi)
@@ -48,7 +48,7 @@ def about():
 	w2 = tk.Button(root, text="Back", bg="red", font="Times 32", fg="white", command=show_main)
 	w2.place(x=screen_width/2 - button_width/2, y=screen_height/2 + button_height*6.25, width=button_width, height=button_height)
 	w3 = tk.Label(root, text=about_text, font="Times 12", fg="black", bg=bg_color)
-	w3.place(x=screen_width/2 - button_width/2, y=screen_height/2 - button_height*1.25, width=button_width, height=button_height)	
+	w3.place(x=screen_width/2 - button_width/2, y=screen_height/2 - button_height*1.25, width=button_width, height=button_height)
 	about_widgets = [w1, w2, w3]
 
 def level4(): #TODO this was a big copy paste from the start_menu_buttons. make sure everything is correct
