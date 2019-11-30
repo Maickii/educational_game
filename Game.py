@@ -1,4 +1,5 @@
 import tkinter as tk
+from level import *
 
 root = tk.Tk()
 root.attributes("-fullscreen", True)
@@ -8,6 +9,8 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 button_width=400
 button_height=50
+root.button_width=400
+root.button_height=50
 
 menu_widgets = []
 about_widgets = []
@@ -132,7 +135,10 @@ def start_menu_buttons():
 
 def main():
 	game_title()
-	start_menu_buttons()
+	#start_menu_buttons()
+	main_menu_args = (("Grade 1", level4), ("Grade 2", level4), ("Grade 3", level4),
+					  ("Grade 4", level4), (None), ("About", "red", about), ("Exit Game", "red", quit))
+	mylevel = menu_buttons(root, *main_menu_args)
 	tk.mainloop()
 
 if __name__=="__main__":
