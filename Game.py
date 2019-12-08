@@ -19,8 +19,8 @@ class Game:
 		self.root.configure(background=self.root.bg_color)
 		self.screen_width = self.root.winfo_screenwidth()
 		self.screen_height = self.root.winfo_screenheight()
-		self.root.button_width=400
-		self.root.button_height=50
+		self.root.button_width=350
+		self.root.button_height=45
 
 		self.menu_widgets = []
 		self.about_widgets = []
