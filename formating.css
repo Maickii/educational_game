@@ -22,10 +22,10 @@ tr{
 }
 
 .description{
-	margin:50px;
+	font-size:18px;
+	margin-left:150px;
+	margin-right:150px;
 }
-
-
 p{
 	text-align: center;
 }
