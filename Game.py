@@ -5,7 +5,7 @@ class Game:
 	def __init__(self):
 		self.init_globals()
 		#grade4_levels(self.root)
-		main_menu_args = (("Grade 1", self.level4), ("Grade 2", self.level4), ("Grade 3", self.level4),
+		main_menu_args = (("Grade 1", self.level4_valid), ("Grade 2", self.level4_valid), ("Grade 3", self.level4_valid),
 					  ("Grade 4", self.level4_valid), (None), ("About", "red", self.about), ("Exit Game", "red", quit))
 		self.main_menu_frame = menu_buttons(self.root, "ArithMagic!", *main_menu_args)
 		self.all_frames = [self.main_menu_frame]

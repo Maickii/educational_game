@@ -181,11 +181,11 @@ class grade4_levels():
 		self.scores_frame = menu_buttons(root, "Scores", *self.scores_args, buttons=False, frame_arr=self.frame_arr, func=self.update_scores)
 		self.scores_frame.generate_next_button(append=True)
 
-		grade4 = choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n3, 6, 9, 12, 15", "5", "20", "18", "17", 3)
-		choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n3, 6, 9, 12, 15", "5", "30", "18", "13", 3)
-		choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n3, 6, 9, 12, 15", "7", "21", "18", "15", 3)
+		grade4 = choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n2, 4, 6, 8", "5", "4", "10", "17", 3)
+		choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n4, 8, 12, 16", "5", "30", "20", "13", 3)
+		choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n5, 10, 15, 20, 25", "7", "21", "30", "15", 3)
 		choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n3, 6, 9, 12, 15", "9", "23", "18", "19", 3)
-		first = choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n3, 6, 9, 12, 15", "3", "25", "18", "14", 3)
+		first = choice(self.frame_arr, self.scores, self.time_bonus, root, "What is the next number in the sequence?\n6, 12, 18, 24", "3", "25", "30", "14", 3)
 		first.show()
 
 	def update_scores(self):
@@ -193,7 +193,7 @@ class grade4_levels():
 			print("Warning: the number of scores do not match the number of labels")
 		size = min(len(self.scores), len(self.scores_args))
 		for i in range(size):
-			out = "Challenge #" + str(i) + " score: " + str(self.scores[i])
+			out = "Challenge #" + str(i+1) + " score: " + str(self.scores[i])
 			if self.scores[i] != 0 and self.time_bonus[i] != 0:
 				out += " + time bonus " + str(self.time_bonus[i])
 			self.scores_args[i].set(out)
